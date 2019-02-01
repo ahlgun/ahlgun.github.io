@@ -1,0 +1,108 @@
+.rowborder {
+    font-size: 2pc;
+    text-align: center;
+    
+}
+.rowborderright {
+    align: right;
+    
+    
+}
+.order_now {
+    display: block;
+    text-align:right;
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+
+.pay_2_play {
+    background-image: url("footer.image.jpg")
+}
+
+#produkt_huvud {
+    height: 20vh;
+}
+
+.produktlista {
+    border: 2px solid black;
+}
+body {
+    color:rgb(174,143,81) !important;
+}
+
+#headertext {
+    color:black;
+}
+
+.about-img {
+	border:2px solid #333;
+	border-radius:5px;
+	height:225px;
+	width:80%;
+	margin:auto;
+	background-image:url("kaffelatte.jpg");
+	background-size:cover;
+	background-position:center;
+    margin-bottom: 50px;
+}
+
+#hundra1 {
+    width:200%;
+}
+
+.bild1 {
+    background-image: url(Bilder/Moccamaster.jpg)
+}
+
+.bild2 {
+     background-image: url(Bilder/Coffeebeanz.jpg)   
+}
+
+.bild3 {
+     background-image: url(Bilder/coffee-box.jpg)   
+}
+
+.bild4 {
+     background-image: url(Bilder/16030.jpg)   
+}
+
+.justify {
+    
+}
+
+#produkttext {
+    margin-top: 70px;
+    color: white;
+    font-size: 75px;
+    
+    
+}
+.orderbutton {
+    position: relative;
+    top:-40px;
+    margin-bottom: -40px;
+}
+
+.bestall {
+    
+
+}
+.totalfot {
+    font-size: 200%;
+}
+
+#bildtext1 {
+  margin-top: 100px;
+}
+#bildtext2 {
+  margin-top: 100px;
+}
+
+#bildtext3 {
+  margin-top: 120px;
+}
+
+#bildtext4 {
+  margin-top: 180px;
+}

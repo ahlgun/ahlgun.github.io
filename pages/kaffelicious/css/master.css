@@ -1,0 +1,250 @@
+
+/* LOADING ANIMATION */
+
+#fixed-loader {
+  z-index:500;
+  position:fixed;
+  height:100vh;
+  width:100vw;
+  display: flex;
+  align-items: center;
+  background-color:white;
+  color:black;
+  visibility:visible;
+  animation: splash_page 0.9s ease-in-out 2.5s forwards;}
+
+#fixed-loader img:first-child {
+  width:100px;}
+
+@keyframes splash_page{
+    from {visibility:visible; opacity:1;}
+    to {visibility:hidden; opacity:0;}}
+
+
+
+/* GO-TO-TOP KNAPP */
+
+#go-to-top {
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:498;}
+#go-to-top-btn {
+  padding:10px 13px 13px 13px;
+  color:white;
+  background-color:#333;
+  border:1px solid white;
+  transition: 0.2s all ease;
+  box-shadow:1px 1px 2px black;}
+#go-to-top-btn:hover {
+  transform:scale(1.1);
+  box-shadow:2px 2px 4px black;}
+
+#what-we-do div div h3 {
+  color:rgb(174,143,81);}
+
+#what-we-do div div {
+  margin:auto;
+  width:90%;
+}
+
+/* ENHETLIG DESIGN - ALLA SIDOR */
+
+body {
+  font-family:'Oswald',sans-serif;
+  font-weight: 300;
+  color:white;}
+
+.hr {
+  color:#333;
+  border:1px solid #bbb;
+  margin:auto;
+  margin-top:50px;}
+
+header {
+  padding: 150px 0 0 0;}
+
+header .row,
+footer .row {
+  display: flex;
+  align-items: center;}
+
+header h1 {
+  font-weight: 700;
+  margin: 0;
+  white-space:nowrap;}
+
+header nav {
+  display: flex;
+  justify-content: flex-end;}
+
+section .row img {
+  margin: 0 0 30px;
+  width: 100%;}
+
+footer {
+  padding-bottom:50px;
+  padding-top:25px;}
+
+footer, header {
+  color:#333;}
+
+footer .col-sm-8 {
+  display: flex;
+  justify-content: flex-end;}
+
+  footer ul {
+    list-style: none;}
+
+  footer li img {
+    width: 40px;
+    height: 40px;}
+
+.row figure h3 {
+  position:relative;
+  top:150px;
+  margin:0;
+  padding:0;
+  font-size:60px;
+  text-shadow:1px 2px 1px black;}
+
+.row figure {
+  display: flex;
+  align-items: center;}
+
+.row figure a {
+  color:white;}
+
+.jumbotron {
+  display: flex;
+  align-items: center;
+  background-color:white;
+  background-size: cover;
+  background-position:center;
+  height: 100vh;}
+
+  .jumbotron h2 {
+    font-size: 75px;
+    font-weight: 900;
+    margin: 0;}
+    
+  .jumbotron h3 {
+    margin: 10px 0 40px 0;
+    font-weight: 900;}
+
+
+
+/* FÖRSTASIDA */
+
+.header {
+  background-image:url("Bilder/coffeebeans.jpg");
+  background-size:cover;
+  letter-spacing:2px;
+  background-position:center;
+  -webkit-font-smoothing: antialiased !important;
+  text-shadow: 3px 2px 5px #111;}
+
+#header-logo {
+  width:200px;
+  position:relative;
+  top:-75px;
+  margin-bottom:-90px}
+
+    #coffee-logo {
+      width:250px;
+      margin:-150px 0 -40px 0;}
+
+    #what-we-do {
+      background-color:white;
+      height:auto;}
+    
+    #what-we-do-img {
+      width:70%;
+      margin-bottom:50px;}
+
+    #what-we-do-btn {
+      color:white;
+      background-color:#333;
+      font-size:24px;
+      font-weight:bold;
+      letter-spacing:1.8px;
+      padding:8px 25px 8px 25px;
+      box-shadow:0px 4px 7px #333;
+      border:2px solid white;}
+
+        #what-we-do-btn:hover {
+          animation-name: what-we-do-animation;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+          animation-duration: 0.5s;}
+
+@keyframes what-we-do-animation {
+  from {
+    transform:scale(1);
+    box-shadow:0px 4px 7px #333;}
+  to {
+    transform:scale(1.1);
+    box-shadow:0px 6px 14px black;}}
+
+
+
+/* BILDNAVIGATIONSMENY */
+  
+.img-button {
+   background-size:cover;
+   background-position:center;
+   background-repeat:none;
+   padding:0;
+   border:5px solid white;
+   transition:all 0.2s ease;
+   opacity:1;
+   text-decoration:none;
+   z-index:5;}
+
+ .img-button h3 {
+   padding:175px 0 175px 0;
+   margin:-4px 0 -4px 0;
+   transition:all 0.2s ease;
+   opacity:0;
+   color:white;
+   text-shadow:3px 2px 5px #111;
+   font-size:75px;
+   text-decoration:none;}
+
+  .img-button a {text-decoration:none;}
+
+      .img-button:hover {
+        opacity:0.85;
+        -webkit-filter: grayscale(100%);}
+    
+      .img-button h3:hover {
+        opacity:1;}
+
+      .produkter-button {
+        background-image:url("Bilder/kaffe.jpg");}
+      .forum-button {
+        background-image:url("Bilder/forum.jpg");}
+      .blogg-button {
+        background-image:url("Bilder/blogg.jpg");}
+      .about-button {
+        background-image:url("Bilder/about.jpg");}
+      .contact-button {
+        background-image:url("Bilder/contact.jpg");}
+
+
+
+/* ÖVRIGA KLASSER */
+
+.no-text-shadow {
+  text-shadow:none;}
+
+.second {
+   color:black;}
+
+.breakline-top {
+   position:relative;
+   top:-65px;}
+
+.letter-spacing {
+   letter-spacing:1.5px;
+   line-height:150%;}

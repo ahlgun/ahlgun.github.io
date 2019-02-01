@@ -1,0 +1,98 @@
+body {
+	color:#333;}
+
+html {
+	overflow-x:hidden;
+}
+
+.who-are-we {
+	margin:auto;
+	color:#333;
+}
+
+.who-are-we div h3 {
+	padding:12px;
+	margin-bottom:0;
+	border-bottom:0;
+}
+
+.who-are-we div p {
+	padding:20px 30px 20px 30px;
+}
+
+
+#jumbotron {
+	margin:0;
+	padding:0;
+	position:relative;
+	top:-5px;
+	z-index:-1;
+}
+
+#nav-header {
+	z-index:1;
+}
+
+#get-to-know-us {
+	-webkit-filter: grayscale(100%);
+}
+
+#get-to-know-us h3 {
+	opacity:1;
+	color:white
+	text-shadow:1px 1px 7px black;
+	letter-spacing:0.4em;
+	text-decoration:underline;
+}
+
+.container-fluid .img-row .individuals {
+	color:#333;
+	text-align:center;
+	margin-bottom:50px;
+}
+
+figure {
+	margin:auto;
+	max-width:250px;
+	max-height:250px;
+}
+
+figure img {
+	height:250px;
+	border-radius:50%;
+	border:5px solid #333;
+	-webkit-filter: grayscale(100%);
+}
+
+.col-sm-6 p, .col-sm-4 p {
+	color:rgb(174,143,81);
+	font-weight:lighter;
+	line-height:24px;
+	font-size:120%;
+	padding:0 20px 0 20px;
+}
+
+.img-row {
+	margin-top:50px;
+}
+
+.col-sm-12 a {
+	border:none;
+	width:35%;
+	min-width:200px;
+	height:55px;
+	font-size:32px;
+	background-color:rgb(174,143,81);
+	color:white;
+	transition:all 0.2s ease;
+}
+
+.col-sm-12 a:hover {
+	background-color:#333;
+	color:rgb(174,143,81);
+}
+
+.col-sm-6 h2 {
+	text-decoration:underline;
+	text-shadow:2px 2px 2px gray;
+}

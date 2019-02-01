@@ -1,0 +1,50 @@
+body {
+ 	background-color:rgb(65,74,81);}
+hr {
+	width:55%;
+	min-width:200px;}
+.h2-h4-hotfix {
+	width:80%;
+	margin:auto;
+	margin-top:30px;
+	text-align:center;}
+.bold {
+	font-weight:bold;}
+.col-xs-6 {
+	padding:10px;}
+.col-xs-10 {
+	font-size:18px;
+	margin-top:7px;}
+.col-xs-10-hotfix {
+	margin-top:-5px;}
+.col-xs-10-hotfix a {
+	color:rgb(174,143,81);
+	transition:all 0.2s ease;
+	text-decoration:none;}
+.col-xs-10-hotfix a:hover {
+	color:gold;
+	text-decoration:none;}
+.col-lg-6 {
+	margin:0 0 50px 0;}
+.info-row {
+	padding:20px 20px 20px 20px;}
+#form {
+	padding:50px;}
+.form-icon {
+	width:40px;
+	height:40px;}
+#msg {
+	justify-content:top;
+	padding-bottom:200px;
+	padding-top:15px;}
+#send {
+	background-color:rgb(65,74,81);
+	color:white;
+	border:1px solid white;
+	padding-top:20 20 20 20;
+	transition:0.3s all cubic-bezier(1,1.73,0,1.56)}
+	#send:hover {
+		background-color:white;
+		transform:scale(1.2);
+		color:rgb(65,74,81);
+		border:1px solid rgb(65,74,81);}

@@ -1,0 +1,18 @@
+.pushmenu {border:2px solid white; height:40px; width:120px; margin-left:5px; margin-top:2px; font-family:Arial; font-size:125%; padding:5px; background-color:#333; transition: background-color 0.2s ease; color:white;}
+.pushmenu:hover {background-color:#111;}
+.dropdown-content {font-family:Arial; display:none; position:absolute; margin-left:0px; margin-top:6px; background-color:#333; min-width:160px; box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);}
+.dropdown-content a {transition:background-color 0.2s ease; color:white; padding:12px 16px; text-decoration:none; display:block; text-align:left;}
+.dropdown-content a:hover {background-color: #111;}
+.show {display:block;}
+#page-wrap {background:white; padding:20px 50px 20px 50px; margin:20px auto; min-height:100px; min-width:90%; height:auto !important;}
+#contact-area {width:600px; margin-top:25px;}
+#contact-area input, #contact-area textarea {padding:5px; width:471px; font-family:Arial; font-size:14px; margin:0px 0px 10px 0px; border:2px solid #bbb;}
+#contact-area textarea {height:90px;}
+#contact-area textarea:focus, #contact-area input:focus {border:2px solid #111;}
+#contact-area input.submit-button {width:100px; float:right;}
+label {float:left; text-align:right; margin-right:15px; width:75px; padding-top:5px; font-size:16px;}
+.form-header {font-size:130%; padding:0px; margin-top:-15px; float:left;}
+.homepage {border:2px solid #111; background-image;none; margin:auto; padding:5px; padding-top:20px; padding-bottom:20px; padding-left:10px; padding-right:10px; text-decoration:none; border-radius:4px; font-size:125%; transition:all 0.2s ease;}
+.homepage:hover {background-color:#111; color:white; border-radius:5px; box-shadow:4px 4px 6px -4px gray;}
+.fppp {float:right; position:relative; top:70px; left:-250px;}
+.fppo {float:left; margin-top:100px;}

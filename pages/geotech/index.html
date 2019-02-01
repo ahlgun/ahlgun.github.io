@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<title> A | Gunnar </title>
+	<meta charset="utf-8" />
+	<!-- Compiled css import -->
+	<link href="src/css/compiler.css" type="text/css" rel="stylesheet" />
+	<!-- Icon import -->
+	<script src="https://use.fontawesome.com/e58e7af208.js"></script>
+	<!-- P5 import -->
+	<script src="lib/js/p5.min.js"></script>
+
+</head>
+
+<body>
+
+	<!-- Temp load module -->
+	<div id="loader" class="m-fadeOut">
+		<div class="loader-wrapper">
+			<div class="loader"></div>
+		</div>
+	</div>
+
+	<!-- Application module -->
+	<div id="application-container" class="m-fadeOut">
+
+		<!-- Application canvas appends here -->
+
+		<!-- Decorative top left corner -->
+		<div id="corner-top" class="corner">
+			<img src="src/img/line.png" alt="" />
+		</div>
+		<!-- Decorative bottom right corner -->
+		<div id="corner-bottom" class="corner">
+			<img src="src/img/line.png" alt="" />
+		</div>
+
+		<!-- Settings overlay -->
+		<div id="menu" class="m-fadeOut">
+			<div id="menu-container">
+
+				<!-- Settings main header -->
+				<div id="menu-header">
+					<h1> Settings </h1>
+				</div>
+
+				<!-- Top decorative line -->
+				<hr style="border:1px solid #fff; width:calc(100% - 20px);"/>
+
+				<!-- Settings interface -->
+				<div id="settings-wrapper">
+
+					<!-- Preferences -->
+					<div class="settings-container">
+						<!-- Preferences header -->
+						<h2 id="prefs-header" class="m-fadeOut">
+							<i class="fa fa-sliders" aria-hidden="true"></i>
+							Preferences
+						</h2>
+						<!-- Preferences button row -->
+						<div id="prefs" class="m-fadeOut">
+							
+						</div>
+					</div>
+
+					<!-- Maps -->
+					<div class="settings-container">
+						<!-- Maps header -->
+						<h2 id="maps-header" class="m-fadeOut">
+							<i class="fa fa-map" aria-hidden="true"></i>
+							Maps
+						</h2>
+						<!-- Map button row -->
+						<div id="maps" class="m-fadeOut">
+							
+						</div>				
+					</div>
+
+					<!-- Colorschemes -->
+					<div class="settings-container">
+						<!-- Colorschemes header -->
+						<h2 id="colorschemes-header" class="m-fadeOut">
+							<i class="fa fa-magic" aria-hidden="true"></i>
+							Color schemes
+						</h2>
+						<!-- Colorschemes button row -->
+						<div id="colorschemes" class="m-fadeOut">
+							
+						</div>				
+					</div>
+
+				</div>
+
+				<!-- Bottom decorative line -->
+				<hr style="border:1px solid #fff; width:calc(100% - 20px);"/>
+
+			</div>
+
+		</div>
+
+		<!-- Settings toggle -->
+		<div id="menu-toggle" class="m-fadeIn">
+			<i id="menu-open" class="fa fa-cogs m-fadeIn"></i>
+			<i id="menu-close" class="fa fa-close m-fadeOut"></i>
+		</div>
+
+	</div>
+
+	<!-- Script import -->
+	<script src="lib/js/DOM_EXT.js"></script>
+	
+	<script src="src/js/MercatorManager.js"></script>
+	<script src="src/js/MercatorProjector.js"></script>
+	<script src="src/js/Main.js"></script>
+
+<script>
+
+// !function(o,c) {console.log(o, c)} (window, document);
+
+</script>
+
+</body>
+</html>

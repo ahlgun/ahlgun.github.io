@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Firebase</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link rel="stylesheet" href="style.css">
+	<script src="https://www.gstatic.com/firebasejs/3.7.2/firebase.js"></script>
+	<script src="https://use.fontawesome.com/e58e7af208.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+
+<div id="chat" class="hide">
+	<div id="messages"></div>
+	<div id="miscbar">
+    	<button id="btnLogout" class="btn btn-flat">Sign out</button>
+		<hr/><h5>Users</h5><hr/>
+		<div id="users"></div>
+	</div>
+	<div id="post">
+		<input id="messageText" value="" placeholder="Type a message...">
+	</div>
+	<button id="btnPostMessage" class="btn">Post</button>
+</div>
+
+<div id="login" class="hide">
+	<nav id="loginForm">
+	    <div class="nav-wrapper">
+	        <input id="loginEmail" type="email" placeholder="Email">
+	        <input id="loginPassword" type="password" placeholder="Password">
+	        <button id="btnLogin" class="btn btn-flat £fullWidth">Sign in</button>        
+	    </div>
+	</nav>
+	<div>
+		<div class="form £valign">
+			<h4 class="center-align">Sign up</h4>
+			<input id="signupEmail" type="email" placeholder="Email">
+			<input id="signupName" type="text" placeholder="Name">
+			<input id="signupPassword" type="password" placeholder="Password">
+			<div class="center-align">
+				<button id="btnSignup" class="btn btn-large">Sign up now</button>
+			</div>                 
+		</div>
+	</div>
+</div>
+
+<div id="snackbar"></div>
+
+<script>
+// FIREBASE INIT
+var config = {
+	apiKey: "AIzaSyCRFGP4XTK-9lrHCj0Xed50uzpRXtw45S8", 
+	authDomain: "codebase-dc0c5.firebaseapp.com", 
+	databaseURL: "https://codebase-dc0c5.firebaseio.com", 
+	storageBucket: "codebase-dc0c5.appspot.com", 
+	messagingSenderId: "170309111366"};
+firebase.initializeApp(config);
+</script>
+
+<script src="script.js"></script>
+</body>
+</html>

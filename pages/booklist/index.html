@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inlämning 1 VG</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://use.fontawesome.com/e58e7af208.js"></script>
+</head>
+<body>
+	<nav id="nav">
+		<div class="nav-wrapper">
+		  <ul id="nav-mobile" class="center textshadow">
+		    <li><span id="currentApiKey"></span></li>
+		    <li><a href="#" title="Click to to get a new API key" onclick="getNewKey()"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+		    <li><a href="#" title="Click to add a new book to the list" onclick="manipulateDOM('display', 'module')"><i class="fa fa-plus" aria-hidden="true"></i></a></li>
+		    <li><a href="#" title="Click to refresh data" onclick="viewData()"><i class="fa fa-refresh" aria-hidden="true"></i></a></li>
+		    <li><a href="#" title="Click to add random books" onclick="getRandomBooks()">Add random books</a></li>
+		    <li><a href="#" id="eventListMenu" title="Click to open event log" onclick="eventLog('menu')"><i class="fa fa-list-ul" id="eventListTrigger" aria-hidden="true"></i></a></li>
+		  </ul>
+		</div>
+	</nav>
+
+	<br/>
+
+	<div id="displayfield" class="row"></div>
+
+	<div id="module" class="£fixed-hidden">
+		<div class="form">
+		  <h3>Add a new book</h3>
+			<input placeholder="Title.." value="" id="newTitle" class="col s12">
+			<input placeholder="Author.." value="" id="newAuthor" class="col s12">
+			<span onclick="addData()" class="£half">Confirm</span>
+			<span onclick="hideOverlays()" class="£half">Cancel</span>
+		</div>
+	</div>
+
+	<div id="textedit" class="£fixed-hidden">
+		<div class="form">
+		  <h3>Edit an existing book</h3>
+			<input placeholder="Title.." value="" id="editTitle" class="col s12">
+			<input placeholder="Author.." value="" id="editAuthor" class="col s12">
+			<span onclick="sendData()" class="£half">Confirm</span>
+			<span onclick="hideOverlays()" class="£half">Cancel </span>
+		</div>
+	</div>
+
+	<div id="loadingOverlay" class="£fixed-hidden">
+		<div class="loader"></div>
+	</div>
+
+	<div id="eventList">
+		<i class="fa fa-close" onclick="eventLog('close')" id="eventListCloser" aria-hidden="true"></i>
+	</div>
+<script src="script.js"></script>
+</body>
+</html>

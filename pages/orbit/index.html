@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>A | Gunnar</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<style> body {background:#fff; padding:0; margin:0; font-weight:bold; overflow:hidden;}</style>
+	<script src="assets/js/three.js"></script>
+	<script src="assets/js/stats.min.js"></script>
+</head>
+<body>
+<script>
+var container, stats;
+var camera, scene, renderer;
+var geometry, group;
+var mouseX = 0, mouseY = 0;
+var windowHalfX = window.innerWidth / 2;
+var windowHalfY = window.innerHeight / 2;
+document.addEventListener( 'mousemove', onDocumentMouseMove, false );
+
+init();
+animate();
+
+function init() {
+
+	window.addEventListener( 'resize', onWindowResize, false );
+	container = document.createElement( 'div' );
+	document.body.appendChild( container );
+	camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 100000 );
+	scene = new THREE.Scene();
+	scene.fog = new THREE.Fog( 0x111111, 1, 19000);
+	camera.position.x = 150;
+	camera.position.y = 20;
+	camera.position.z = 50;
+
+
+
+	// Texture loader
+	var textureLoader    = new THREE.TextureLoader();
+	var	moonBumpMap      = textureLoader.load('assets/img/moonbumpmap.jpg');
+	var	moonColorMap     = textureLoader.load('assets/img/mooncolormap.jpg');
+	var	earthSpecMap     = textureLoader.load('assets/img/specmap.jpg');
+	var	earthBumpMap     = textureLoader.load('assets/img/bumpmap.jpg');
+	var	earthColorMap    = textureLoader.load('assets/img/colormap.jpg');
+	var	earthCloudMap    = textureLoader.load('assets/img/cloudmap.jpg');
+	var textureFlare0    = textureLoader.load('assets/img/lensflare0.png');
+	var textureFlare2    = textureLoader.load('assets/img/lensflare2.png');
+	var textureFlare3    = textureLoader.load('assets/img/lensflare3.png');
+	var redStarSprite    = textureLoader.load('assets/img/stellar/redStar.png');
+	var blueStarSprite   = textureLoader.load('assets/img/stellar/blueStar.png');
+	var whiteStarSprite  = textureLoader.load('assets/img/stellar/whiteStar.png');
+	var orangeStarSprite = textureLoader.load('assets/img/stellar/orangeStar.png');
+	var yellowStarSprite = textureLoader.load('assets/img/stellar/yellowStar.png');
+	var purpleNebulae    = textureLoader.load('assets/img/stellar/nebula.png');
+
+
+
+	// Planet Tellus
+	var PlanetGeometry = new THREE.SphereGeometry(5, 32, 32);
+	var TellusGraphics = new THREE.MeshPhongMaterial({color:0xffffff, shininess:25, specular:0x222222});
+	TellusGraphics.map = earthColorMap;
+	TellusGraphics.bumpMap = earthBumpMap;
+	TellusGraphics.bumpScale = 1;
+	TellusGraphics.specularMap = earthSpecMap;
+	TellusGraphics.specular = new THREE.Color('grey');
+	Tellus = new THREE.Mesh(PlanetGeometry, TellusGraphics);
+	Tellus.position.x = 200;
+	Tellus.position.y = 50;
+	Tellus.position.z = 70;
+	Tellus.rotation.x = Math.random() * 2 * Math.PI;
+	Tellus.rotation.y = Math.random() * 2 * Math.PI;
+	var geometry = new THREE.SphereGeometry(5.1, 32, 32)
+	var material = new THREE.MeshPhongMaterial({map:earthCloudMap, side:THREE.DoubleSide, opacity:0.3, transparent:true, depthWrite:false});
+	var geometry = new THREE.SphereGeometry(5.25, 32, 32)
+	var material = new THREE.MeshPhongMaterial({map:earthCloudMap, side:THREE.DoubleSide, opacity:0.3, transparent:true, depthWrite:false});
+	cloudMesh1 = new THREE.Mesh(geometry, material);
+	cloudMesh2 = new THREE.Mesh(geometry, material);
+	Tellus.add(cloudMesh1);
+	Tellus.add(cloudMesh2);
+	Tellus.castShadow = true;
+	Tellus.receiveShadow = true;
+	scene.add( Tellus );
+
+	// MOON
+	var MoonGeometry = new THREE.SphereGeometry(2, 24, 24);
+	var MoonGraphics = new THREE.MeshPhongMaterial({color:0xffffff, shininess:15, specular:0x222222})
+	MoonGraphics.map = moonColorMap;
+	MoonGraphics.bumpMap = moonBumpMap;
+	MoonGraphics.bumpScale = 0.2;
+	var MoonSurface = new THREE.Mesh( MoonGeometry, MoonGraphics );
+	MoonAxis = new THREE.Object3D();
+	Moon = new THREE.Object3D();
+	Moon.castShadow = true;
+	Moon.receiveShadow = true;
+	Tellus.add(MoonAxis);
+	Moon.rotation.z = 0;
+	Moon.position.y = 35;
+	Moon.add(MoonSurface);
+	MoonAxis.add(Moon);
+
+
+
+	// Wallpaper
+	createParticleSystem();
+	//var starfield = textureLoader.load('assets/img/starfield.png');
+	/*var skybox = new THREE.Mesh(new THREE.SphereGeometry(10000, 64, 64), new THREE.MeshBasicMaterial({map: starfield, side: THREE.BackSide}));
+	scene.add(skybox);*/
+	// Create Sol
+	addLight( 0.55, 0.9, 0.5, 0, 0, 0 );
+	pointLight = createStar( 0xffccb0 );
+	pointLight.intensity = 1;
+	scene.add( pointLight );
+
+
+
+	// Renderer
+	renderer = new THREE.WebGLRenderer( { antialias: true, alpha: true } );
+	renderer.setClearColor( 0x000000 );
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	renderer.shadowMap.enabled = true;
+	renderer.shadowMap.type = THREE.BasicShadowMap;
+	renderer.sortObjects = false;
+	renderer.gammaInput = true;
+	renderer.gammaOutput = true;
+	container.appendChild( renderer.domElement );
+	stats = new Stats();
+	container.appendChild( stats.dom );
+
+	function addLight( h, s, l, x, y, z ) {
+		var light = new THREE.PointLight( 0xffffff, 0, 5000 );
+		light.color.setHSL( h, s, l );
+		light.position.set( x, y, z );
+		scene.add( light );
+		var flareColor = new THREE.Color( 0xffffff );
+		flareColor.setHSL( h, s, l + 0.5 );
+		var lensFlare = new THREE.LensFlare(textureFlare0, 700, 0.0, THREE.AdditiveBlending, flareColor);
+		lensFlare.add(textureFlare2, 512, 0.0, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare2, 512, 0.0, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare2, 512, 0.0, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare3, 60, 0.6, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare3, 70, 0.7, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare3, 120, 0.9, THREE.AdditiveBlending);
+		lensFlare.add(textureFlare3, 70, 1.0, THREE.AdditiveBlending);
+		lensFlare.customUpdateCallback = lensFlareUpdateCallback;
+		lensFlare.position.copy(light.position);
+		scene.add(lensFlare);
+	}
+	function createStar( color ) {
+		var pointLight = new THREE.PointLight( color, 1, 2000 );
+		pointLight.castShadow = true;
+		pointLight.shadow.camera.near = 1;
+		pointLight.shadow.camera.far = 2000;
+		pointLight.shadow.bias = 0.1;
+		var geometry = new THREE.SphereGeometry( 0.1, 24, 24 );
+		var material = new THREE.MeshPhongMaterial( { color: color, depthWrite:false, transparent:true} );
+		var sphere = new THREE.Mesh( geometry, material );
+		pointLight.add( sphere );
+		return pointLight;
+	}
+	function lensFlareUpdateCallback( object ) {
+		var f, fl = object.lensFlares.length;
+		var flare;
+		var vecX = -object.positionScreen.x * 2;
+		var vecY = -object.positionScreen.y * 2;
+		var camDistance = camera.position.length();
+		for( f = 0; f < fl; f++ ) {
+			flare = object.lensFlares[ f ];
+			flare.x = object.positionScreen.x + vecX * flare.distance;
+			flare.y = object.positionScreen.y + vecY * flare.distance;
+			flare.wantedRotation = flare.x * Math.PI * 0.25;
+	    flare.rotation += ( flare.wantedRotation - flare.rotation ) * 0.25;
+	    flare.scale = 1 / camDistance * 400;}
+		object.lensFlares[ 2 ].y += 0.025;
+		object.lensFlares[ 3 ].rotation = object.positionScreen.x * 0.5 + THREE.Math.degToRad( 45 );
+	}	
+	function createParticleSystem() {
+	 	function createStarSystem(map, amount, size) {
+	 		let clusterGeometry = new THREE.Geometry();
+		 	for (let p=0; p < amount ; p++) {
+		  	let x = Math.random() * 20000 - 10000;
+		  	let y = Math.random() * 20000 - 10000;
+		  	let z = Math.random() * 20000 - 10000; 
+		    let star = new THREE.Vector3(x, y, z);
+		    clusterGeometry.vertices.push(star);}
+		 	let clusterMaterial = new THREE.PointsMaterial({color:0xffffff, size:size, map:map, side:THREE.DoubleSide, blending:THREE.AdditiveBlending, transparent:true, opacity: 0.85, depthWrite:false});
+	    let system = new THREE.Points(clusterGeometry, clusterMaterial);
+			scene.add(system);}
+	 	createStarSystem(redStarSprite, 5000, 60 );
+	 	createStarSystem(orangeStarSprite, 5000, 70);
+	 	createStarSystem(yellowStarSprite, 5000, 75);
+	 	createStarSystem(whiteStarSprite, 5000, 65);
+	 	createStarSystem(blueStarSprite, 5000, 90);
+	 	createStarSystem(purpleNebulae, 50, 300);
+	 }
+}
+
+
+
+function onWindowResize() {
+	windowHalfX = window.innerWidth / 2;
+	windowHalfY = window.innerHeight / 2;
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+}
+function onDocumentMouseMove(event) {
+	mouseX = ( event.clientX - windowHalfX ) * 1;
+	mouseY = ( event.clientY - windowHalfY ) * 1;
+}
+function animate() {
+	requestAnimationFrame(animate);
+	render();
+	stats.update();
+}
+
+
+
+function render() {
+	// Camera
+	camera.position.x += ( mouseX - camera.position.x ) * .05;
+	camera.position.y += ( - mouseY - camera.position.y ) * .05;
+	//camera.lookAt( scene.position );
+	var position = new THREE.Vector3();
+	position.setFromMatrixPosition(Tellus.matrixWorld );
+	camera.lookAt(position);
+	// Lightsource
+	pointLight.position.x = 0;
+	pointLight.position.y = 0;
+	pointLight.position.z = 0;
+	pointLight.rotation.x += 0.0015
+	// Earth Clouds
+	cloudMesh1.rotation.x += 0.0015;
+	cloudMesh2.rotation.x += 0.0005;
+	// Earth
+	Tellus.rotation.x += 0.001;
+	// Moon
+	MoonAxis.rotation.z += 0.001;
+	MoonAxis.rotation.y += 0.0005;
+	// Render
+	renderer.render(scene, camera);
+}
+
+</script>
+</body>
+</html>

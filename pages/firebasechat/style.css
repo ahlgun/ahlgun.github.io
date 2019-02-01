@@ -1,0 +1,202 @@
+
+html,body {
+	background-color:rgb(30,30,30);
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	font-family: 'Montserrat', sans-serif;}
+
+.form {margin:auto; width:400px;}
+.£fullWidth {width:100%;}
+
+#signup {
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	width:100vw;
+	height:100vh;
+	z-index:1;}
+
+.£valign {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);}
+
+#loginForm {
+	position:fixed;
+	top:0;
+	left:0;
+	right:0;
+	z-index:10000;
+	background-color:#fff;
+	padding:8px;}
+#loginForm input {
+	color:#333;
+	float:left;
+	width:33.333%;
+	float:left;
+	background-color:#fff;}
+#loginForm button {
+	float:right;
+	width:150px;}
+
+.form {
+	margin:auto;
+	background-color:#fff;
+	padding:20px;
+	box-shadow:0 4px 24px}
+
+.btn {
+	margin-top:5px;}
+#btnSignup {
+	background-color:rgb(38l166,154) !important;}
+
+/* --- | SNACKBAR / TOAST | --- */
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color:#333;
+    color: #fff;
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+    border:2px solid rgb(38,166,154);}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}}
+
+.online {
+	color:rgb(38,166,154);}
+.offline {
+	color:rgb(239,83,80);}
+
+
+
+
+/* ---| SCROLLBAR |--- */
+::-webkit-scrollbar {
+    width: 6px;}
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); }
+::-webkit-scrollbar-thumb {
+    background: rgb(100,100,100); 
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); }
+
+
+#messages {
+	position:absolute;
+	padding:4px;
+	overflow-y:scroll;
+	font-size:18px;
+	height:100vh;
+	width:calc(100% - 200px);
+	left:0;
+	top:0;
+	bottom:0;
+	border:3px solid #333;}
+
+.message {
+	background-color:#efefef;
+	padding:8px;
+	margin-top:0;
+	margin-bottom:4px;
+	overflow-wrap: break-word;}
+
+#messages {
+	padding-bottom:45px;}
+
+#post {
+	background-color:#333;
+	position:absolute;
+	bottom:0;
+	width:calc(100% - 200px);
+	height:45px;
+	border:2px solid rgb(38,166,154);}
+
+#miscbar {
+	padding:4px;
+	position:absolute; top:0; right:0; bottom:0;
+	width:200px; height:100vh;
+	overflow-y:scroll;
+	background-color:#efefef;}
+
+#miscbar button {
+	width:100%;
+	z-index:100;}
+
+#miscbar h5 {
+	font-weight:bolder;}
+
+#miscbar hr {
+	border:1px solid #333;}
+
+#btnPostMessage {
+	position:absolute;
+	right:4px;
+	bottom:6px;
+	border-radius:0;}
+
+
+
+#chat {
+	background-color:#fff;
+	width:100%;
+	height:100vh;}
+
+
+#messageText {
+	padding:8px;
+	padding-top:0;
+	color:#fff;
+	font-size:20px;}
+
+#btnPostMessage {
+	width:185px !important;}
+.message span {
+	padding:8px;
+	margin:4px;}
+.message span:hover {
+	cursor:pointer;
+	color:rgb(38,166,154);}
+
+
+.time {
+	color:#aaa;
+	font-size:13px;}
+
+.name {
+	color:rgb(38,166,154);
+	margin-top:10px;
+	font-weight:bolder;
+	font-size:20px;}
+
+.msg {
+	color:#333;
+	font-size:15px;
+	margin-bottom:0px;}

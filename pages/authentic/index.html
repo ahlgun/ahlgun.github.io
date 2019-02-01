@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Authentic Weather</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<style>
+		body {
+			font-family:'Roboto',sans-serif;
+			letter-spacing:1.5px;}
+		input,button {
+			letter-spacing:1.5px;
+			font-family:'Roboto',sans-serif;
+			padding:20px;
+			font-weight:bolder;
+			font-size:20px;
+			background-color:#333;
+			color:#fff;
+			width:300px;
+			border:none;
+			outline:none;}
+		button {
+			color:#ccc;}
+		button:hover, input:hover {
+			cursor:pointer;
+			background-color:#222;
+			color:#fff;}
+		.firstinput {
+			border-top:5px solid #ff6700;}
+		#applicant {
+			font-family:'Roboto',sans-serif;
+			border-top:5px solid #ff6700;
+			background-color:#222;
+			color:#fff;
+			padding:20px;
+			font-weight:bolder;
+			font-size:20px;
+			width:300px;
+			height:150px;}
+		#app {
+			position:relative;
+			top:50px;
+			outline:3px solid #333;
+			padding:10px;
+			background-color:#222;
+			width:320px;
+			margin:auto;}
+		.app-outline {
+		
+			margin:auto;
+			width:500px;
+			height:500px;
+			background-size:cover;}
+	</style>
+</head>
+<body>
+<div class="app-outline">
+	<div id="app">
+		<input type="text" 
+			   onkeydown="if (event.keyCode == 13) document.getElementById('donebtn').click()" 
+			   value="" 
+			   placeholder="City" 
+			   id="textvalue" 
+			   class="text-center firstinput"><br/>
+		<input type="text" 
+			   onkeydown="if (event.keyCode == 13) document.getElementById('donebtn').click()" 
+			   value="" 
+			   placeholder="Country code (se, en, us)" 
+			   id="codevalue" 
+			   class="text-center"><br/>
+		<button id="donebtn" onclick="init()">Display Weather</button>
+		<div id="applicant" class="text-center"></div>
+	</div>
+</div>
+<script>
+
+function init() {
+
+	var weatherRequest = new XMLHttpRequest();
+	
+	let textvalue = document.getElementById('textvalue').value;
+	weatherRequest.open("GET", 
+		"http://api.openweathermap.org/data/2.5/forecast/city?q="
+		+ textvalue + "&APPID=5565e329add7c97d6933d188cd3ee97e", true);
+	weatherRequest.send();
+
+	function display() {
+		var data = JSON.parse(weatherRequest.responseText);
+
+		let city = data.city.name;
+		let weather = data.list[0].weather[0].description;
+		let wind = data.list[0].wind.speed;
+		let temp = Math.round((data.list[0].main.temp - 273.15 )* 10)/10;
+		
+		console.log(data.list[0].main.temp);
+		console.log(data);
+		document.getElementById('applicant').innerHTML = 
+		city + '<br/>' + weather + '<br/>' + temp + 'C<br/>' + wind + 'm/s';}
+		
+	setTimeout(display,1000);
+
+}
+
+</script>
+
+</body>
+</html>

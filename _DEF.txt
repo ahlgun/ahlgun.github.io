@@ -1,0 +1,19 @@
+PORTFOLIO
+- BabelJS = Kindof needed.
+- Webpack = Needed.
+- PostCSS + next/nano = CSS handling.
+- Atomic Design? = Design principle.
+- RXJS (ReactiveX) = Async & event handling.
+- Browsersync = Multiple platform/network throttle testing.
+- Google analytics maybeee
+- Git Kraken?
+
+OTHER:
+- Standardjs.com
+- Docker homepage slide
+- 'use strict'
+- Omit semicolons
+- Babel minifer
+
+OTHEEER:
+- Codepen

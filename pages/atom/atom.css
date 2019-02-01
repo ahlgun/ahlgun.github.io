@@ -1,0 +1,113 @@
+/* COLORS */
+
+  	body {
+  		margin:0;
+  		padding:0;
+  		height:100vh;
+  		background-color:white;
+  		color:;
+  		font-family:'Norwester',sans-serif;}
+  	html {
+  		opacity:0;
+  		overflow:hidden;
+  		background-color:white;
+  		animation: fadein 2s;
+  		animation-fill-mode: forwards;}
+	@keyframes fadein {
+  		from {display:hidden; opacity: 0; padding-top:50px;}
+  		to   {display:block; opacity: 1; padding-top:0px;}}
+  	input {
+  		margin:3px 0 0 0;}
+    #gameCanvas {
+    	float:left;
+    	opacity:0;
+    	border:1px solid black;
+    	background-color:white;
+    	z-index:5;}
+	@font-face {
+		font-family:'Norwester';
+		src:url(norwester.otf);}
+	#atom {
+		left:0vw;
+		position:fixed;
+		display:block;
+		width:100vw;
+		height:100vh;
+		margin:0;
+		padding:0;
+		background-color:white;
+		color:#333;
+		z-index:1;
+		text-align:center;
+		transition:1s ease-in-out;
+		opacity:1;
+	}
+
+	#atom h1 {
+		margin-top:20vh;
+	}
+	#atom #atomImg {
+		opacity:0;
+		animation:fadein 1s;
+		animation-delay:0.8s;
+		animation-fill-mode: forwards;
+	}
+	#play, #instructions {
+		opacity:0;
+		animation:fadein 1s;
+		animation-fill-mode: forwards;
+		font-family:'Norwester', sans-serif;
+		font-size:25px;
+		margin-top:5px;
+		padding:15px;
+		background-color:white;
+		color:#333;
+		border:2px solid white;
+		transition:0.5s ease;
+	}
+	#play {
+		animation-delay:1s;
+		margin-top:30px;
+	}
+	#instructions {
+		animation-delay:1.2s;
+	}
+	#play:hover, #instructions:hover {
+		transform:scale(1.2);
+		cursor:pointer;
+		text-shadow:0px 2px 2px black;
+	}
+	button:focus {outline:0;}
+	.firstLetter {color:#9A3334;}
+	#how_to_play {
+		position:absolute;
+		left:-10vw;
+		display:hidden;
+		opacity:0;
+		transition:1s ease-in-out;
+		height:100vh;
+		width:100vw;
+		text-align:center;
+		padding:0;
+		margin:0;
+		background-color:white;
+		z-index:-1;
+	}
+	#how_to_play h1 {
+		text-decoration:underline;
+	}
+	#how_to_play h3 {
+		margin-left:15vw;
+		margin-right:15vw;
+	}
+	#video {
+		height:30%;
+	}
+	.F11 {
+		background-color:#333;
+		color:white;
+		padding:1px 4px 1px 4px;
+	}
+	#image {
+		position:absolute;
+	}

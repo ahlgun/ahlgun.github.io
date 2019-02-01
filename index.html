@@ -1,11 +1,103 @@
+<!DOCTYPE html>
 <html>
 <head>
-
+        <title>A | Gunnar</title>
+	<meta charset="UTF-8"/>
+	<meta name="keywords" content="Frontend Web Development"/>
+	<meta name="description" content="Github repository of Gunnar Ahlbom"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link type="text/css" rel="stylesheet" href="assets/materialize.css" media="screen, projection"/>
+	<link type="text/css" rel="stylesheet" href="assets/style.css"/>
+	<script src="https://use.fontawesome.com/e58e7af208.js"></script>
 </head>
-<body>
-	<h1>
-		Hello World!
-	</h1>
-</body>
+<body onload="createCards()">
 
+<div id="body-scroll-fix">
+
+	<!--| Welcome Page |-->
+	<div id="welcome-page" class="£view_height £view_width £font-family-grotesk £letter-spacing-sm £bg-color-dark £text-shadow">
+		<canvas class="£abs £abs_top £abs_left £abs_right £abs_bottom £bg-color-dark" id="canvas"></canvas>
+		<div class="£overlay"></div>
+		<div class="£abs £headlay">
+			<span class="£padding-xl £font-weight-bold £font-color-light">
+				<p class="£welcome-header"><span class="£pre-header">Gunnar</span> : <span class="£sub-header">'Ahlbom'</span></p>
+				<p class="£welcome-subheader"><span class="£subheader-pre">Frontend</span> <span class="£subheader-after">Developer</span></p>
+			</span>
+		</div>
+		<span class="go-work-icon" onclick="smoothScroll('work-page')"><span class="£rel">About me / My work</span><br/><i class="fa fa-sort-desc" aria-hidden="true"></i></span>
+	</div>
+
+	<!--| Work Page |-->
+	<div id="work-page" class="£view_width £height_fluid">
+		<div class="row">
+			<div class="col s12 center-align"><br/><h3 class="£font-weight-bold £padding-xl">WORK & PROJECTS</h3></div>
+		</div>
+		<div class="row">
+			<div class="col s12" id="cards-container"></div>
+		</div>
+	</div>
+
+	<!--| About Page |-->
+	<div class="£view-width £height_fluid £bg-color-dark £font-color-light">
+		<div class="£padding-xl">
+			<h3> Hi, I'm Gunnar. </h3>
+			<h5>I am a frontend web development student from Sweden, currently studying my last year in Gothenburg.</h5>
+			<h5>As a person I love being creative, learning new things and solve problems.</h5>
+			<h5>You can find more about me, who i am and what i do down below on my LinkedIn profile.</h5>
+			<br/><br/><hr/><br/>
+		</div>
+	</div>
+
+	<div class="£view-width £height_fluid £bg-color-dark £font-color-light £padding-xl">
+		<div class="col s12 center-align">
+			<h3 class="£font-weight-bold"> Get in touch with me </h3>
+			<ul class="£font-size-lg">
+				<li class="footer-links"><a href="https://www.linkedin.com/in/gunnar-ahlbom-525633128/" class="£font-color-light"><p><span><i class="fa fa-linkedin" aria-hidden="true"></i> LinkedIn</span><br/> Gunnar Ahlbom</p></a></li>
+				<li class="footer-links"><a href="mailto:name@email.com" class="£font-color-light"><p><span><i class="fa fa-envelope" aria-hidden="true"></i> Mail</span><br/> Gahlbom@gmail.com</p></a></li>
+				<li class="footer-links"><a href="tel:+4721806499" class="£font-color-light"><p><span><i class="fa fa-phone" aria-hidden="true"></i> Phone</span><br/> +4721806499</p></a></lI>
+			</ul>
+		</div>
+	</div>
+
+</div>
+
+
+
+<!--| Project Viewport |-->
+<div id="project-viewport" class="£bg-color-dark £font-color-light">
+	<div class="container">
+		<div id="project-nav">
+			<i id="close-project" class="fa fa-times" aria-hidden="true" onclick="closeProject()"></i>
+		</div>
+		<div class="row" id="projectOpacityControl">
+			<div class="col s12 m6 center-left">
+				<div id="project-header" class="valign"></div>
+		        <span id="description-span" class="£font-color-light"></span>
+		        <br/>
+		        <a href="#" id="project-url" target="_blank" class="£main-button">See it live <i class="fa fa-external-link" aria-hidden="true"></i></a>
+			</div>
+			<div class="col s12 m6 £rel project-images">
+		        <img id="first-project-image" alt="first-project-image" width=90%/>
+		        <img id="second-project-image" alt="second-project-image" width=35%/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s6 £col-spacing-sm">
+		        <span class="project-heading">Released</span>
+		        <p id="project-release-date"></p>
+			</div>
+			<div class="col s6 £col-spacing-sm">
+		        <span class="project-heading">Technologies</span>
+		        <ul id="technology-list"></ul>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+
+<script src="assets/canvas.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
 </html>

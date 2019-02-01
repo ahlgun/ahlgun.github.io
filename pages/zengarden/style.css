@@ -1,0 +1,192 @@
+html {
+	overflow-x: hidden;
+	height: 100%;
+	font-family:Verdana,serif;
+	}
+body { 
+	margin: 0; 
+	padding: 0;
+	perspective: 1px;
+	transform-style: preserve-3d;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    color: #fff;
+	}
+
+.page-wrapper { 
+	padding:0;
+	margin:0; 
+	height:auto;
+	}
+
+header, .preamble, .summary, .supporting, .sidebar{
+	position: relative;
+  padding: 25vh 10%;
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+	transform-style: inherit;
+}
+
+header {
+	text-align: center;
+    font-size: 175%;
+    color: #fff;
+    text-shadow: 1px 3px 3px black;
+    font-family:Arial, serif;
+	background-image: url("zengarden.jpg");
+    background-attachment: fixed;
+    background-position:top;  
+	}
+
+.preamble:before {
+	content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left:0;
+  right:0;
+}
+
+.preamble {
+	min-height:100vh;
+	padding-top:150px;
+	background-image:url("zengarden3.jpg");
+	transform: translateZ(-1px) scale(2.2);
+    z-index:-1;
+    background-position:top;}
+
+	.preamble p{
+		width: 50%;
+	  	padding: 1%;
+	  	color:#333;
+	  	border-radius: 5px;	
+  		background: rgba(240,230,220, .7);
+  		box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+  		z-index:100;
+  		font-size:125%;}
+
+  	.preamble h3 {
+		margin-top:80px;
+		font-size:250%;
+		margin-left:6%;
+		margin-bottom:-10px;
+		text-shadow: 1px 3px 3px black;}	
+
+.preamble p:nth-child(2) {
+	font-style:italic;
+}
+.preamble p:nth-child(3) {
+	margin-left:10%;
+}
+.preamble p:nth-child(4) {
+	margin-left:5%;
+}
+
+a {
+	color:#FF7F50;
+	transition:all 0.25s ease-out;
+	font-style:italic;
+	font-weight:bold;
+}
+a:hover {
+	color:#add8e6;
+	text-decoration:none;
+}
+.designer-name {
+	color:navy;
+}
+
+.select {
+	margin-top:-15vh;
+}
+.explanation h3:first-child {
+	font-size:225%;
+	padding-top:400px;
+}
+
+}
+li {
+	color:orange;
+}
+li a:hover {
+	color:maroon;
+}
+
+
+
+.summary {
+	background-image: url("zengardenwall.jpg");
+    background-attachment: fixed;
+    background-position:center;
+    min-height:125vh;
+    margin-bottom:0px;
+}
+
+ .summary p {
+ 	text-align:center;
+ 	position:relative;
+ 	margin:auto;
+ 	padding:15px;
+ 	width:75%;
+ 	font-size:225%;
+ 	text-shadow: 1px 1px 8px black;
+ 	animation:shook 2s ease-in-out infinite alternate;
+ }
+
+@keyframes shook {
+	from{top:0px; text-shadow: 1px 1px 8px black;}
+	to{top:15px; text-shadow: 2px 3px 5px black;}
+}
+
+
+.main {
+	transform: translateZ(-1px) scale(2);
+    z-index:-2;
+    background-position:center;
+    background-image:url("zengardenend.jpg");
+    background-size:400%;
+    padding-top:0;
+    margin-top:100px;
+    background-repeat:none;
+    background-color:rgb(213,178,150);
+}
+
+.main h3 {
+	font-size:225%;
+	color:#333;
+	margin-bottom:-8px;
+}
+
+.main p {
+	width: 60%;
+	  	padding: 10px;
+	  	color:#333;
+	  	border-radius: 5px;	
+  		background: rgba(240,230,220, .7);
+  		box-shadow: 0 0 8px rgba(0, 0, 0, .7);
+}
+
+footer { 		
+	
+	}
+
+
+.sidebar {
+	background-image:url("bottom.jpg");
+	background-color:#333;
+	background-size:cover;
+	z-index:1;
+	height:100vh;
+	margin-top:600px;
+	border-bottom:35px solid #333;}
+.sidebar h3 {
+	font-size:225%;
+	color:#333;
+}
+.sidebar  {
+	color:#333;
+	font-weight:bold;
+	list-style-type:decimal;
+}

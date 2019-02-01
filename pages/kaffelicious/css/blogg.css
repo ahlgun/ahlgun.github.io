@@ -1,0 +1,985 @@
+body
+{
+	background-color: white;
+	font-size:90%;
+	font-family:Arial;
+	line-height: 1.5;
+	text-align: :left;
+
+	
+}
+a{text-decoration: none;}
+a:link, a:visited{color: black;}
+a:hover, a:active{color:darkgreen;}
+
+.body
+{
+	margin: 0 auto;
+	width: 70%;
+	clear:both;
+	position: relative;
+	bottom: 50px;
+ 
+}
+
+
+.overlay
+{
+	background-image:url(Bilder/kaffehav.jpg);
+	background-size: cover;
+	position: relative;
+	top:0;
+	bottom:0;
+	height: 700px;
+	color: white;
+	font-size:3em;
+	font-family: Arial;
+	
+}
+
+
+nav
+{
+	padding: 15px;
+}
+
+.kaffe
+{
+
+	position: relative;
+	color: white;
+	font-family: Arial;
+	top: 240px;
+	left: 50px;
+}
+.kaffe1
+{
+	
+    position: relative;
+	color: white;
+	font-family: Arial;
+	top: 190px;
+	left: 50px;
+}
+
+.but1
+{
+position: relative;
+left: 1000px;
+background-color:rgb(174,143,81);
+	width: 250px;
+	height: 60px;
+	top:300px;
+border-style: none;
+	border-radius: 5px;
+}
+
+.pp
+{
+bottom: 10px;	
+color: black;
+	position: relative;
+	font-size: 15px;
+	font-weight: 600;
+}
+
+
+.main img
+{
+width: 100%;	
+}
+.main nav
+{
+	background-color: #241508;
+	height: 40px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+}
+.main nav ul
+{
+	text-align: center;
+	margin: 0 auto;
+	list-style-type: none;
+}
+
+.imgkk
+{
+position: relative;
+	left: 190px;
+}
+
+.main nav ul li
+{
+	display: inline;
+	color: white;
+}
+
+.main a:link, .main a:visited
+{color:white;
+padding: 10px 40px;
+	display: inline-block; 
+	height: 20px;
+}
+
+.main a:hover, .main a:active
+{color:white;
+background-color: rgb(174,143,81);
+}
+
+.main1
+{
+	width:70%;
+	float:left;
+}
+
+
+
+
+
+.top
+{
+	background-color:rgb(174,143,81);
+	padding: 3%;
+	margin-top: 3%;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	
+}
+
+.post
+{
+	font-size:20px;
+	color:black;
+	text-align:justify;
+    margin-top: -10px;
+}
+.ar
+{
+	width: 24%;
+	margin: 2% 0 0 2%;
+	float:left;
+	padding: 2%;
+	background-color: rgb(174,143,81);
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+
+}
+
+
+
+
+.contenteditable
+{
+     border: 2px solid black;
+	background-color:white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-color:black;
+	
+}
+
+.input6
+{
+border: 2px solid black;
+	background-color:white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-color:black;	
+}
+
+button
+{
+	border: 2px solid black;
+	background-color:white;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-color:black;
+}
+
+.footer
+{
+	
+
+    background-color: #241508;
+	height:auto;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	float: left;
+	width: 100%;
+	margin-top:20px;
+	color: white;
+	
+
+
+}
+
+
+.aa
+{
+position: relative;
+	left: 40px;
+	font-size: 30px;
+	top:40px;
+}
+
+
+.aa1
+{
+	position: relative;
+	right: 230px;
+	font-size: 20px;
+	top:30px;
+	
+}
+
+.förför
+{
+position: relative;
+	left: 45px;
+	top:50px;
+}
+.footer p
+{
+	text-align: center;
+	color: white;
+	width: 90%;
+}
+
+
+.footer2
+{
+	 position: relative;
+	font-family: Arial;
+	bottom: 10px;
+     font-weight: 600;
+	font-size:22px;
+}
+
+.m1
+{
+	color: white;
+	position: relative;
+	right: 554px;
+
+}
+
+
+.m2
+{
+	color: white;
+	position: relative;
+	right: 271px;
+	font-size: 20px;
+}
+
+.divdiv
+{
+	position: relative;
+	left: 44px;
+}
+.sub 
+{
+	position: relative;
+	left: 260px;
+	border-radius: 5px;
+	background-color: rgb(174,143,81);
+}
+
+.res
+{
+	position: relative;
+	left: 260px;
+	border-radius: 5px;
+	background-color: rgb(174,143,81);
+}
+
+
+.bö
+{
+	text-align: center;
+}
+.footer3
+{
+	text-align: center;
+	color:darkgrey;
+	bottom: 10px;
+	position: relative;
+}
+.böbö
+{
+	text-align: center;
+}
+
+.postpost
+{
+	text-align:center;
+	font-size: 18px;
+	position: relative;
+	bottom: 10px;
+}
+
+.face
+{
+	position: relative;
+	left: 20px;
+}
+
+
+.met
+{
+	width: 300px;
+	position: relative;
+	left: 6px;
+	
+}
+.met1
+{
+	width: 300px;
+}
+
+
+
+.toto
+{
+	list-style: none;
+	float: left;
+    margin: 0px;
+	padding: 20px;
+	position: relative;
+	bottom: 70px;
+	left: 140px;
+}
+
+hr
+{
+color: black;
+	background-color: black;
+	height: 2px;
+	border: 0;
+}
+
+.kata
+{
+	list-style: none;
+	position: relative;
+	right: 40px;
+	font-size: 18px;
+	font-weight:500;
+		
+	
+}
+
+
+
+.sor1
+{
+	
+	border: 2px solid black;
+	background-color:#241508;;
+	color: white;
+    margin: 2px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+
+
+}
+
+
+
+
+
+
+
+/*-------------------@media----------------*/
+
+@media (min-width:1900px) 
+{
+	.body
+	{
+	width: 70%;
+	}
+	
+	
+}
+
+
+
+@media (min-width:1200px) and (max-width:1900px)
+{
+	.body
+	{
+		width: 90%;
+		font-size: 90%;
+	
+	}
+	
+	.main nav
+{
+	
+	height: 300px;
+	
+}
+	.main nav ul li
+{
+	display:block;
+	
+}
+	.ar
+{
+	width: 96%;
+	position: relative;
+	right: 34px;
+	
+
+}
+	
+	.main1
+{
+	width:100%;
+	
+}
+	
+	.imgkk
+{
+    position: relative;
+	left: 25%;
+}
+
+	.ddd
+	{
+		position: relative;
+		left: 500px;
+	}
+	
+	
+}
+
+
+
+
+
+
+@media (min-width:800px) and (max-width:1200px)
+{
+	.body
+	{
+		width: 90%;
+		font-size: 85%;
+	}
+	
+	.main nav
+{
+	
+	height: 310px;
+	
+}
+	.main nav ul li
+{
+	display:block;
+	font-size: 73;
+	
+	
+}
+	.ar
+{
+	width: 96%;
+	position: relative;
+	right: 20px;
+	
+
+}
+	
+	.main1
+{
+	width:100%;
+	
+}
+	
+	.imgkk
+{
+position: relative;
+	left: 119px;
+	width: 600px;
+}
+
+	
+	
+	
+	
+	.m1 
+	{
+		position:relative;
+		right: 390px;
+	
+	}
+	
+	.aa1
+	{
+		position: relative;
+	right: 63px;
+	}
+	
+	
+	
+	
+		.kaffe
+{
+
+	
+	font-size: 90%;
+}
+.kaffe1
+{
+	
+    font-size: 80%
+}
+	
+	.ddd
+	{
+		position: relative;
+		left:230px;
+		width: 400px;
+	}
+	
+	
+	
+}
+
+
+
+@media (min-width:600px) and (max-width:800px)
+{
+	.body
+	{
+		width: 100%;
+		font-size: 52%;
+	}
+	
+	.main nav
+{
+	
+	height: 300px;
+	
+}
+	.main nav ul li
+{
+	display:block;
+	
+}
+	.ar
+{
+	width: 96%;
+	position: relative;
+	right: 15px;
+	
+
+}
+	
+	.main1
+{
+	width:100%;
+	
+}
+	
+	.imgkk
+{
+position: relative;
+	left: 100px;
+	width: 400px;
+}
+
+	.ddd
+	{
+		position: relative;
+		left: 150px;
+	}
+	
+	
+	
+	.m1 
+	{
+		position:relative;
+		right: 257px;
+		font-size: 10px;
+	
+	}
+	
+	.aa1
+	{
+		position: relative;
+	right: 8px;
+		font-size: 15px;
+	}
+	
+	
+	.ara1{
+		width: 500px;
+		height: 200px;
+		
+	}
+	
+	.sub 
+{
+	
+	left: 190px;
+	
+}
+
+.res
+{
+	
+	left: 190px;
+	
+}
+	
+	.toto
+{
+	
+	left: 30px;
+	position: relative;
+	bottom:60px;
+
+}
+	
+	
+	
+}
+
+
+
+
+
+
+
+@media (min-width:400px) and (max-width:600px)
+{
+	.body
+	{
+		width: 100%;
+		font-size: 48%;
+	}
+	
+	.main nav
+{
+	
+	height: 300px;
+	
+}
+	.main nav ul li
+{
+	display:block;
+	
+}
+	.ar
+{
+	width: 96%;
+	position: relative;
+	right: 15px;
+	
+
+}
+	
+	.main1
+{
+	width:100%;
+	
+}
+	
+	.imgkk
+{
+position: relative;
+	left: 110px;
+	width: 300px;
+}
+
+	.ddd
+	{
+		position: relative;
+		left: 119px;
+	}
+	
+	
+	
+	.m1 
+	{
+		position:relative;
+		right: 225px;
+		font-size: 10px;
+	
+	}
+	
+	.aa1
+	{
+		position: relative;
+	left: 26px;
+		font-size: 15px;
+	}
+	
+	
+	.ara1{
+		width: 400px;
+		height: 200px;
+		
+	}
+	
+	.sub 
+{
+	
+	left: 150px;
+	
+}
+
+.res
+{
+	
+	left: 150px;
+	
+}
+	
+	.toto
+{
+	
+	left: 30px;
+	position: relative;
+	bottom:60px;
+	width: 20px;
+     
+}
+	.overlay
+{
+	
+	height: 600px;
+	
+	
+}
+	
+	
+	.kaffe
+{
+
+	
+	left: 40px;
+}
+.kaffe1
+{
+	
+    position: relative;
+	color: white;
+	font-family: Arial;
+	top: 210px;
+	left: 40px;
+}
+	
+	.vido
+	{
+		
+		width: 500px;
+		position: relative;
+		bottom: 100px;
+		
+		
+	}
+	
+	
+	
+}
+
+
+
+
+@media (min-width:300px) and (max-width:400px)
+{
+	.body
+	{
+		width: 100%;
+		font-size: 30%;
+
+	}
+	
+	.main nav
+{
+	
+	height: 300px;
+	
+}
+	.main nav ul li
+{
+	display:block;
+	
+}
+	.ar
+{
+	width: 96%;
+	position: relative;
+	right: 15px;
+	
+
+}
+	
+	.main1
+{
+	width:100%;
+	
+}
+	
+	.imgkk
+{
+position: relative;
+	left: 90px;
+	width: 200px;
+}
+
+	.ddd
+	{
+		position: relative;
+		left: 82px;
+		width: 200px;
+	}
+	
+	
+	
+	.m1 
+	{
+		position:relative;
+		right: 225px;
+		font-size: 10px;
+	
+	}
+	
+	.aa1
+	{
+		position: relative;
+	left: 26px;
+		font-size: 15px;
+	}
+	
+	
+	.ara1{
+		width: 300px;
+		height: 200px;
+		
+	}
+	
+	.sub 
+{
+	
+	left: 100px;
+	
+}
+
+.res
+{
+	
+	left: 160px;
+	position: relative;
+	bottom: 22px;
+	
+}
+	
+	.toto
+{
+	
+	left: 1px;
+	position: relative;
+	bottom:50px;
+	width: 1px;
+	padding: 21px;
+     
+}
+	.overlay
+{
+	
+	height: 600px;
+	
+	
+}
+	
+	
+	.kaffe
+{
+
+	
+	left: 40px;
+}
+.kaffe1
+{
+	
+    position: relative;
+	color: white;
+	font-family: Arial;
+	top: 220px;
+	left: 40px;
+}
+	
+	.vido
+	{
+		
+		width: 300px;
+		position: relative;
+		bottom: 200px;
+		
+		
+	}
+	
+	
+	.post
+	{
+		font-size: 16px;
+	}
+	
+	
+	
+	.förför
+{
+position: relative;
+	left: 45px;
+	top:50px;
+	width: 100px;
+}
+	
+	
+	
+	.inin
+	{
+		
+		width: 200px;
+	}
+	
+	
+	.met
+	{
+		width: 90px;
+	}
+	
+	
+	.met1
+	{
+		width: 90px;
+		position: relative;
+		left: 4px;
+	}
+}
+
+
+
+@media (max-width:300px) 
+{
+	.container {display:none;}
+}
+
+
+
+
+
+
+
+

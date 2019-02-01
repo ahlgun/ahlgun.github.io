@@ -1,0 +1,26 @@
+#nav h1, #nav a{
+	color:white;}
+#nav a {
+	margin:0 2.5px 0 2.5px;
+	color:#333;
+	border:none;
+	transition:all 0.2s ease;
+	border-radius:2px;
+	font-size:125%;
+	box-shadow:0px 0px 0px rgb(174,143,81);}
+#nav a:hover {
+	background-color:#333;
+	color:white;
+	border:none;
+	box-shadow:0px 3px 0px rgb(174,143,81);}
+#nav-header {
+	margin:0;
+	padding:35px 22px 35px 22px;
+	background-image:url("Bilder/Coffeebeanz.jpg");
+	background-size:cover;
+	background-position:center;
+	width:100%;
+	border-bottom:4px solid silver;}
+#nav-header #nav .col-sm-4 {
+	color:white;
+	text-decoration:underline;}

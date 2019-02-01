@@ -1,0 +1,78 @@
+.about {border-bottom:1px solid #111; width:90%;}
+.ans {font-size:125%; padding-left:25px;padding-top:20px;padding-bottom:50px;}
+.aligner {margin:auto;}
+.aligncenter {text-align:center;}
+.alignleft {text-align:left;}
+.alignright {text-align:right;}
+.blue {color:blue;}
+body {background-color:#bbb; background-position:center; background-attachment: fixed; font-family:Arial, Helvetica, sans-serif;}
+.bold {font-weight:700;}
+.bottom {width:100%; height:auto; float:left; text-align:center;}
+.border {border:1px solid #111;}
+.content {width:100%; height:250px; padding:5px; margin-top:10px; background-color:white;}
+.content-margin {margin:auto; width:90%; margin-top:10px; margin-bottom:30px;}
+.contact {color:#53868B; font-weight:700;}
+#flashContent {width:100%; height:100%;}
+.floatleft {float:left;}
+.floatright {float:right;}
+.footer {width:100%; height:auto; padding:5px;float:left;}
+.footertext {font-size:87.5%; color:black; font-variant:small-caps; color:#999;}
+.header {width:100%;}
+.headings, .headingsx {width:100%; padding:5px; background-color:lightblue; font-weight:700; color:black; position:relative; top:-25px;}
+.legacy {float:left; width:49%; height:auto; margin-top:10px; margin-bottom:10px; border-bottom:1px solid #777; border-top:1px solid #777; padding-top:10px; padding-bottom:10px;}
+.logo {width:100%; height:400px; margin-top:51px; margin:0;background-image:url('exceptions/img/bg.jpg'); background-size:cover; background-position:center;}
+.main {width:100%; float:left; height:auto; margin-top:50px; position:relative; top:-330px; z-index:10; background-color:white; box-shadow:2px 14px 8px -8px #333; margin-bottom:-240px; padding-left:7px; padding-right:7px;}
+.mainleft {margin-right:5px;}
+.mainleft, .mainright {padding:3px; float:left; height:auto;}
+.mainright {float:right; border-left:1px solid #777; padding-left:10px;}
+.maintop {width:100%; height:160px; text-align:left; padding-bottom:10px; margin-bottom:10px; border-bottom:1px solid #777;}
+.nav {z-index:11;position:fixed; top:0px; width:100%; min-width:360px; height:45px; border-top: 3px solid #333; border-bottom:48px solid #333; background-color:#333;}
+.navnav {max-width:976px; min-width:360px; margin:auto;}
+.read {width: 100%; border:5px solid #333; padding:20px; background-color:white;}
+.readmore {padding:5px; color:blue; text-decoration:underline;}
+.right-logo {font-family:kelvetica; color:white; padding-left:10px; padding-right:10px; float:right; font-size:30px; margin-right:6px; transition:all 0.2s ease;}
+.right-logo:hover {background-color:#111; text-shadow:2px 2px 2px black;}
+.top {float:left; margin-left:3px; margin-bottom:5px; margin-top:10px; padding:5px; background-color:white;}
+#viewport {border-top:15px solid #333; border-bottom:15px solid #333; outline:2px solid #999;}
+.wrapper {width:100%; float:left;}
+
+.imgonpage {width:100%; height:400px; padding: 10px;}
+
+.lec {list-style-type:none; color:blue; font-size:117%; transition:color 0.15s ease;}
+.lec:hover {color:maroon;}
+.indent {margin-left:30px;}
+.center {font-family:Arial; font-size:138%; font-weight:500; padding:0px; text-decoration:underline;}
+
+
+.toplogo {height:160px; width:240px; margin-left:0px; margin-top:0px;padding:10px;}
+
+.imgbutton {width:40px; height:20px; position:relative; margin-top:-5px; margin-left:8px;}
+
+.tc-img {width:100%; height:40%;}
+.tc-title {line-height:100%; margin:0px; padding:5px; padding-left:0px; color:black;}
+.tc-text {color:#444; position:relative; top:-25px; font-size:80%;}
+.tc-margin {text-decoration:none;}
+
+.nc-img {width:100%; height:100%;}
+.nc-title {line-height:100%;}
+.nc-text {color:#444;}
+.nc-link {position:relative; top:0px;}
+.nc-left {width: 40%; height: 100%; float:left;}
+.nc-right {width:50%; margin-left:10px; float:left;}
+
+.no-top {position:relative; margin-top:10px;}
+
+.ct-hover {opacity:0.91; transition: all .2s ease-in-out; border:none;}
+.ct-hover:hover {opacity:1.0; transform:scale(1.0085); box-shadow:0px 2px 8px #333;}
+.gray {color:#565656;}
+
+@font-face {
+    font-family: kelvetica;
+    src: url(exceptions/font/kelvetica.otf);}
+
+.contain {border-bottom:20px; padding-bottom:20px; margin-bottom:15px; border-bottom:1px solid #333;}
+.scaleable-img {margin:auto; width:70%;}
+.imgonpage {width:100%; height:80%;}
+.imgalign {margin:auto; width:100%; text-align:center;}
+.bottom-border {border-top:1px solid #333; margin-top:20px; padding-top:10px;}
+.alignright {margin-left:15%; position:relative; top:-32px; text-align:left; margin-bottom:-15px; font-size:275%;}

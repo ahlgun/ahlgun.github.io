@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Atoms | Gunnar A.</title>
+  <link type="text/css" rel="stylesheet" href="atom.css"/>
+  <script src="https://use.fontawesome.com/28fa0f3d25.js"></script>
+</head>
+<body onload="init()">
+<div>
+	<canvas id= "gameCanvas"></canvas>
+</div>
+
+<div id="atom">
+	<h1><span class="firstLetter">A</span>TOMS</h1>
+	<img id="atomImg" src="atom.gif" alt="atom" width="100" title="atom"/><br/>
+	<button type="button" id="play" onclick="play()">Play</button><br/>
+	<button type="button" id="instructions" onclick="instructions()">Instructions</button>
+</div>
+<div id="how_to_play">
+	<h1>How to play</h1>
+	<h3><span class="firstLetter">Click</span> with the cursor on an atom to make it <span class="firstLetter">explode</span>. Victory is achieved once there are <span class="firstLetter">no atoms left</span>. <br/>The difficulty setting dictates the amount of cursor clicks that are avaliable from the start.<br/>
+	Made for fullscreen : <span class="F11">F11</span></h3>
+	<video id="video" controls muted>
+  		<source src="instructions.mp4" type="video/mp4">
+  		Your browser does not support the video tag.
+  	</video><br/>
+  	<button type="button" id="play" onclick="play()">Play</button>
+</div>
+<!--    <audio src="Space Trip.mp3" autoplay="autoplay" loop></audio>    -->
+<script src="atom.js"></script>
+</body>
+</html>

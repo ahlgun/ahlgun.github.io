@@ -1,0 +1,105 @@
+html {
+	overflow-x:hidden;
+}
+
+body {
+	font-family: 'Lalezar', cursive;
+}
+
+.body {
+	padding-right:15px;
+	padding-left:15px;
+	background:linear-gradient(#333,#111);
+	border-left:3px solid rgb(255,180,50);
+}
+
+.nav {
+	background-color:#333;
+	color:white;
+}
+
+.row hr {
+	border:1px solid rgb(255,180,50);
+}
+
+.nav-header-text {
+	text-shadow:1px 2px 3px black;
+}
+
+.nav-menu a {
+	color:white;
+	text-shadow:1px 2px 3px black;
+}
+
+nav a {
+	display:block;
+}
+
+.primary-color {
+	color:rgb(255,180,50);
+}
+
+.img-viewport {
+	background-color:white;
+	background-position:center;
+	background-size:cover;
+	height:18vw;
+}
+
+.static {
+	position:fixed;
+	color:white;
+	z-index:50;
+	width:25%;
+	min-width:175px;
+}
+
+.pri {
+	padding-top:15px;
+	left:5px;
+	margin-left:-5px;
+	height:100vh;
+	background:linear-gradient(#333,#111);
+}
+
+.dual {
+	top:200px;
+	left:5px;
+}
+
+figure {
+	transition:all 0.2s ease;
+	filter:grayscale(0%) blur(0px) sepia(50%);
+}
+
+figure:hover {
+	filter:grayscale(100%) blur(0px) sepia(0%);
+	outline:2px solid white;
+	z-index:1;
+}
+
+
+figure:first-child {
+	background-image:url('https://lh3.ggpht.com/-iD7FSHrgo2w/UKGqFwDW1BI/AAAAAAAAALs/5ttF-A52Jk8/s1600/10Sep_scr02_.png');}
+figure:nth-child(2) {
+	background-image:url('http://i1-news.softpedia-static.com/images/news2/Crypt-of-the-NecroDancer-Is-a-2D-Roguelike-Insanely-Fun-Platformer-for-Linux-479531-2.jpg');}
+figure:nth-child(3) {
+	background-image:url('http://www.vgnaut.com/wp-content/uploads/2014/06/Dungeon-of-the-Endless-620x348.jpg');}
+figure:nth-child(4) {
+	background-image:url('https://blogjob.com/oneangrygamer/files/2016/03/Dark-Quest-2-2.jpg');}
+figure:nth-child(5) {
+	background-image:url('http://gosu.vn/data/images/GOSU_NEWS/2015-08/18/k/the-dungeon.png');}
+figure:nth-child(6) {
+	background-image:url('http://images.pocketgamer.co.uk/images/featimgs/steamscreen-247080.jpg');}
+figure:nth-child(7) {
+	background-image:url('http://www.vgnaut.com/wp-content/uploads/2014/06/thepit-620x348.jpg');}
+figure:nth-child(8) {
+	background-image:url('http://www.quartertothree.com/fp/wp-content/uploads/2012/10/my_god_its_full_of_boxes.jpg?a2c92f');}
+figure:nth-child(9) {
+	background-image:url('http://www.digiseller.ru/preview/364431/p1_2032965_70cc7a7e.jpg');}
+figure:nth-child(10) {
+	background-image:url('http://www.parafool.com/wp-content/uploads/2013/04/DiehardDungeon.png');}
+figure:nth-child(11) {
+	background-image:url('http://www.hardcoredroid.com/wp-content/upLoads/2016/02/Android-action-Space-Grunts-03.png');}
+figure:nth-child(12) {
+	background-image:url('https://i.ytimg.com/vi/pFBpSQRDztI/maxresdefault.jpg');}

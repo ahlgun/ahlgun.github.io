@@ -1,0 +1,48 @@
+{
+	"presets": {
+		"dark":"dark-v9",
+		"light":"light-v9",
+		"outdoors":"outdoors-v10",
+		"satellite":"satellite-v9",
+		"satellite_streets":"satellite-streets-v10"
+	},
+	"schemes": {
+		"opacity": 200,
+		"presets": {
+			"magnitude": [
+				["255","255","255"],["204","204","254"],["153","255","255"],
+				["154","255","153"],["255","255","051"],["255","204","103"],
+				["255","153","053"],["254","000","000"],["156","000","001"],
+				["020","020","020"]
+			],
+			"rainbow": [
+				["071","093","204"],["112","146","190"],["117","207","240"],
+				["147","232","183"],["176","230","149"],["245","200","015"],
+				["242","146","073"],["235","025","035"],["242","014","110"],
+				["030","030","030"]
+			],
+			"pureple": [
+				["238","232","243"],["204","186","220"],["170","140","197"],
+				["136","094","173"],["102","048","150"],["085","026","139"],
+				["068","020","111"],["051","015","083"],["034","010","050"],
+				["017","005","027"]
+			],
+			"spacedissolve": [
+				["255","255","255"],["225","225","225"],["200","200","200"],
+				["175","175","175"],["150","150","150"],["125","125","125"],
+				["100","100","100"],["050","050","050"],["025","025","025"],
+				["000","000","000"]
+			]
+		}
+	},
+	"zoom":1,
+	"resolution":{
+		"width":1000,
+		"height":600
+	},
+	"volcanic_url":"https://raw.githubusercontent.com/apelserg/data-osm-getdata/master/geojson/osmnode-volcano.geojson",
+	"tectonic_url":"src/img/tectonics.png",
+	"earthquake_url":"https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_month.geojson",
+	"mapbox_url":"https://api.mapbox.com/styles/v1/mapbox/",
+	"mapbox_token":"pk.eyJ1IjoiZ3VubmFyYSIsImEiOiJjamNqNGR0Y2IzdjRjMndwNXRtNW5pbWlnIn0.xBwPT9iLGcXEZcJ5dqzTNQ"
+}

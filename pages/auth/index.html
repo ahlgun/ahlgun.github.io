@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Auth</title>
+<style>
+
+html, body {background-color:rgb(30,30,30); color:#fff; font-family:Arial, sans-serif;}
+
+.£fixed           {position:fixed;}
+.£fixed-corners   {top:0; left:0; right:0; bottom:0;}
+.£fullscreen      {width:100vw; height:100vh;}
+.£visible-overlay {z-index:1000;}
+.£scheme-light    {background-color:#fff; color:rgb(30,30,30);}
+.£scheme-dark     {background-color:rgb(30,30,30); color:#fff;}
+
+#user img {
+	width:80px;
+	margin:auto;
+}
+#user h3 {
+
+	color:#fff;
+}
+#user h5 {
+	color:#ccc;
+}
+
+#user span {
+	color:#999;
+}
+
+#userPage {
+	width:250px;
+	margin:auto;
+}
+.£button {
+	font-weight:600;
+	margin-top:8px;
+	background-color:#fff;
+	color:rgb(30,30,30);
+	padding:8px;
+	font-size:16px;
+	border:0;
+	transition:0.2s ease;
+
+}
+.£button:hover {
+	background-color:orange;
+	color:#fff;
+}
+
+.£button:disabled {
+	background-color:#333;
+	color:#aaa;
+}
+
+
+.£center {
+	text-align:center;
+}
+
+.£centra {
+	padding:10px;
+	width:400px;
+	margin:auto;
+	margin-top:100px;
+	border:1px solid #333;
+
+}
+
+.£centra button {
+	width:49.4%
+}
+
+</style>
+</head>
+<body>
+
+<div id="loginPage" class="£fixed £fullscreen £fixed-corners £visible-overlay £scheme-dark">
+	<div class="£centra">
+		<h3 class="£center">Firebase Authentication</h3>
+		<button class="£button" id="githubSignin">Github Auth</button>
+		<button class="£button" id="googleSignin">Google Auth</button>
+	</div>
+</div>
+
+<div id="userPage" class="£center">
+	<div id="user"></div>
+	<button class="£button" id="adminButton">Clickable if admin</button><br/>
+	<button class="£button" id="signOut">Sign out</button>
+</div>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+
+let getID = id => document.getElementById(id);
+let DOM = (id, state) => {
+	let obj = getID(id).style;
+	if(state) {
+		obj.visibility = 'visible'; 
+		obj.display = 'block'; 
+		obj.opacity = '1';
+	}
+	else {
+		obj.visibility = 'hidden'; 
+		obj.display = 'none'; 
+		obj.opacity = '0';
+	}
+}
+
+
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyBhEbBw2glQVPOjAWyAoSFYwrVLc-CUwCo",
+    authDomain: "signinauth-713f2.firebaseapp.com",
+    databaseURL: "https://signinauth-713f2.firebaseio.com",
+    storageBucket: "signinauth-713f2.appspot.com",
+    messagingSenderId: "156229110097"};
+firebase.initializeApp(config);
+
+const auth = firebase.auth();
+var githubProvider = new firebase.auth.GithubAuthProvider();
+var googleProvider = new firebase.auth.GoogleAuthProvider();
+
+// GITHUB SIGN IN
+getID('githubSignin').addEventListener('click', e => {
+	firebase.auth().signInWithPopup(githubProvider)
+	.then(function(result) {
+	   	displayUser(result);
+	})
+	.catch(function(error) {
+    	console.log(error.message);
+    });
+});
+
+// GOOGLE SIGN IN
+getID('googleSignin').addEventListener('click', e => {
+	firebase.auth().signInWithPopup(googleProvider)
+	.then(function(result) {
+	   	displayUser(result);
+	})
+	.catch(function(error) {
+    	console.log(error.message);
+    });
+});
+
+// SIGN OUT
+getID('signOut').addEventListener('click', e => {
+	firebase.auth().signOut()
+	.then(function() {
+  		console.log('Signed out.');
+  	})
+	.catch(function(error) {
+  		console.log(error.message);
+  	});
+});
+
+// DISPLAY IF AUTH
+auth.onAuthStateChanged(user => {
+	if (user) {DOM('loginPage', false); displayUser();}
+	else 	  {DOM('loginPage', true);}
+});
+
+// APPEND USER DATA TO DISPLAY DIV
+function displayUser(result) {
+	if(result) {
+		let user = result.user.providerData[0];
+		let container = getID('user');
+			container.innerHTML = '';
+
+		let userImage = document.createElement('img');
+			userImage.src = user.photoURL;
+			userImage.alt = user.displayName;
+			container.appendChild(userImage);
+
+		let userName = document.createElement('h3');
+			if(user.displayName !== null) userName.innerHTML = user.displayName;
+			else userName.innerHTML = 'No username';
+			container.appendChild(userName);
+
+		let userEmail = document.createElement('h5');
+			userEmail.innerHTML = user.email;
+			container.appendChild(userEmail);
+
+		let userId = document.createElement('span');
+			userId.innerHTML = 'Signed in through: ' 
+							 + user.providerId; 
+							 + ' with user id: ' 
+							 + user.uid;
+			container.appendChild(userId);
+
+		if(user.displayName !== null) localStorage.setItem('userName', user.displayName);
+		else localStorage.setItem('userName', 'No username');
+		localStorage.setItem('userEmail', user.email);
+		localStorage.setItem('userId', user.uid);
+		localStorage.setItem('userProvider', user.providerId);
+		localStorage.setItem('userImg', user.photoURL);
+	}
+	
+	else {
+		let container = getID('user');
+			container.innerHTML = '';
+		let userImage = document.createElement('img');
+			userImage.src = localStorage.getItem('userImg');
+			container.appendChild(userImage);
+
+		let userName = document.createElement('h3');
+			userName.innerHTML = localStorage.getItem('userName');
+			container.appendChild(userName);
+
+		let userEmail = document.createElement('h5');
+			userEmail.innerHTML = localStorage.getItem('userEmail');
+			container.appendChild(userEmail);
+
+		let userId = document.createElement('span');
+			userId.innerHTML = 'Signed in through: ' 
+							 + localStorage.getItem('userProvider'); 
+							 + ' with user id: ' 
+							 + localStorage.getItem('userId');
+			container.appendChild(userId);
+	}
+
+	if(localStorage.getItem('userId') == '21596856' && localStorage.getItem('userName') == 'Gunnar Ahlbom') {
+		getID('adminButton').disabled = false;
+	}
+	else {
+		getID('adminButton').disabled = true;
+	}
+}
+
+
+
+</script>
+</body>
+</html>

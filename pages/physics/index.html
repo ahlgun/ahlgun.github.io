@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)file:///D:/Physics/Physics%20Engine.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width">
+  <title>Physics Engine</title>
+  <style>
+  	/* COLORS */
+  	#currentBlue, #currentRed, #currentGreen {
+  		margin-left:5px;
+  		width:24px;}
+	#colorRed {
+		margin-left:18px;}
+	#colorBlue {
+		margin-left:12px;}
+	#colorRed, #colorGreen, #colorBlue {
+		position:relative;
+		top:5px;}
+	.red {color:red;}
+	.green {color:green; margin-right:2px;}
+	.blue {color:blue; margin-right:-1px;}
+	#randomColor {margin-top:10px;}
+	#radius, #gravity, #bubblesplus {
+		width:40px;}
+	#newbubble, #delbubble, #minspeed, #maxspeed {
+		font-family:'Norwester',sans-serif;}
+	#newbubble, #delbubble {
+		height:30px;}
+	#newbubble {
+		background-color:green;}
+	#delbubble {
+		background-color:red;}	
+	#radius {
+		margin-left:10px;}
+	#Gravity, #randomRadius, #randomColor {
+		margin-left:4px;
+		position:relative;
+		top:2px;}
+	.bb {
+		width: 100%;}
+	.controlsArea {
+		z-index:1;
+		position:absolute;
+		left:20px;
+		top:20px;}
+  	body {
+  		margin:0;
+  		padding:0;
+  		height:100vh;
+  		background-color:#ddd;
+  		color:#333;
+  		font-family:'Norwester',sans-serif;}
+  	html {
+  		overflow:hidden;
+  		background-color:black;}
+  	input {
+  		margin:3px 0 0 0;}
+    #gameCanvas {
+    	float:left;
+    	border:1px solid black;
+    	background-color:white;
+    	z-index:5;}
+	.canvasButton {
+		background-color:white;}
+    .canvasControls {
+		visibility:visible;
+		font-family:'Norwester', sans-serif;
+		padding:10px;
+		float:left;}
+	.firstControls {
+		padding-top:35px;}
+	#controlBTN, #controlOPACITY {
+		opacity:0.5;
+		width:113.5px;
+		background-color:#bbb;
+		font-family:'Norwester',sans-serif;}
+	#controlOPACITY {
+		position:relative;
+		opacity:0;}
+	#controlBTN:hover, #controlOPACITY:hover {
+		opacity:1;}
+	#canvasInterface {
+		width:100%;
+		opacity:0;
+		position:absolute;
+    	z-index:1;
+    	transition:0.3s ease;
+    	left:-250px;}
+	@font-face {
+			font-family:'Norwester';
+			src:url(norwester.otf);}
+  </style>
+</head>
+<body onload="init()">
+<div>
+	<canvas id="gameCanvas" width="1534" height="733"></canvas>
+	<div id="canvasInterface" class="canvasControls" style="opacity: 0.2; left: 0px;">
+		<div class="canvasControls canvasButton firstControls">
+			<!-- CREATE/DELETE -->	
+			<input id="newbubble" type="button" class="bb" value="NEW BUBBLE (ARROW UP)" onclick="addBubble()">
+			<input id="delbubble" type="button" class="bb" value="DELETE ALL" onclick="subBubble()"><br>
+			<!-- ANIMATION -->
+			<label>Animation Speed:</label>
+				<input id="maxspeed" type="button" value="+" onclick="start()">
+				<input id="minspeed" type="button" value="-" onclick="stop()"><br>
+			<!-- RADIUS -->
+			<label for="radius">Radius:</label>
+			<input id="radius" type="number" min="1" max="100" value="5" onchange="amountNewRadius(this.value);">
+				<label for="randomRadius">Random</label>
+				<input type="checkbox" id="randomRadius" onclick="randomRadius(this.value);" checked=""><br>
+			<!-- BUBBLES -->
+			<label for="bubblesplus">Bubbles:</label>
+			<input id="bubblesplus" type="number" min="1" max="50" value="1" onchange="amountNewBubbles(this.value);"><br>
+			<!-- GRAVITY -->
+			<label for="Gravity">Gravity:</label>
+			<input type="checkbox" id="Gravity" onclick="gravityToggle();" checked=""><br>
+
+
+			<label for="colorRed"><span class="red">Red:</span></label>
+				<input id="colorRed" type="range" min="0" max="255" onchange="rangeUpdateRed(this.value);"><input id="currentRed" value="125"><br>
+			<label for="colorGreen"><span class="green">Green:</span></label>
+				<input id="colorGreen" type="range" min="0" max="255" onchange="rangeUpdateGreen(this.value);"><input id="currentGreen" value="125"><br>
+			<label for="colorBlue"><span class="blue">Blue:</span></label>
+				<input id="colorBlue" type="range" min="0" max="255" onchange="rangeUpdateBlue(this.value);"><input id="currentBlue" value="125"><br>
+
+			<label for="randomColor">Random:</label>
+				<input type="checkbox" id="randomColor" onclick="randomColor(this.value);" checked="">
+
+
+		</div>
+	</div>
+</div>
+<div class="controlsArea">
+	<input id="controlBTN" type="button" class="cc" value="CONTROLS" onclick="toggleControls()" style="opacity: 0.5;">
+	<input id="controlOPACITY" type="button" class="cc" value="OPACITY" onclick="toggleOpacity()" style="opacity: 0; left: -250px;">
+</div>
+<script>
+
+var canvas, c, time, bubbles = {}, bubbleIndex = 0, bubbleNum = 0;
+var amountRed = 125, amountGreen = 125, amountBlue = 125, amountRadius = 5;
+var controlNumber = 1, isGravity = 0.5, emitter = false;
+
+document.onkeydown = checkKey;
+
+function checkKey(e) {
+    e = e || window.event;
+    if (e.keyCode == '38' && emitter == true) {
+        emitter = false;}
+    else if (e.keyCode == '38' && emitter == false){
+        emitter = true;}}
+
+
+
+function Bubble() {
+  this.x = (canvas.width / 2) + (Math.random() * canvas.width/2 - canvas.width/4);
+  this.y = (canvas.height / 2) + (Math.random() * canvas.width/8 - canvas.width/6);
+  this.vx = Math.random() * 10 - 5;
+  this.vy = Math.random() * 10 - 5;
+  this.radius = (randomRadius()===true ? this.radius = Math.random() * 25 + 1 : this.radius = amountRadius/2);
+  this.gravity = isGravity;
+  
+  bubbleIndex++;
+  bubbles[bubbleIndex] = this;
+  this.id = bubbleIndex;
+
+  if (randomColor() === true) {
+  	this.color = "hsla("+parseInt(Math.random()*360, 10)+",75%,50%,1)";}
+  if (randomColor() != true) {
+  	this.color = 'rgb('+amountRed+','+amountGreen+','+amountBlue+')';}}
+
+Bubble.prototype.draw = function(){
+  if (this.x + this.radius > canvas.width || this.x - this.radius < 0) {this.vx = -this.vx;}
+  if (this.y + this.radius > canvas.height || this.y - this.radius < 0) {this.vy = -this.vy;}
+
+  if (this.x + this.radius > canvas.width +3) {this.x = canvas.width - this.radius; this.vx *= -0.05}
+  if (this.x - this.radius < 0) {this.x = this.radius ; this.vx *= 0.05}
+  if (this.y + this.radius > canvas.height +3) {this.y = canvas.height - this.radius; this.vy *= -0.05}
+  if (this.y - this.radius < 0) {this.y = this.radius; this.vy *= 0.05}
+
+
+
+  c.beginPath();
+  c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI, false);
+  c.fillStyle = this.color;
+  c.fill();
+  c.strokeStyle = this.color;
+  c.stroke();
+  this.x += this.vx;
+  this.y += this.vy;
+  this.vy += this.gravity;
+  this.vy *= 0.998;
+  this.vx *= 0.999;}
+
+Bubble.prototype.checkCollision = function() {
+  for (let j in bubbles) {
+    if (bubbles[j].id != this.id) {
+      var dx = bubbles[j].x - this.x;
+      var dy = bubbles[j].y - this.y;
+      var trueDis = Math.sqrt(dx * dx + dy * dy);
+      var minDis = bubbles[j].radius + this.radius;
+      if (trueDis < minDis) {
+        var v = Math.atan2(dy, dx);
+        spread = minDis - trueDis;
+        ax = spread * Math.cos(v);
+        ay = spread * Math.sin(v);
+        this.x -= ax;
+        this.y -= ay;            
+        this.vx -= Math.cos(v);
+        this.vy -= Math.sin(v);
+        bubbles[j].vx += Math.cos(v);
+        bubbles[j].vy += Math.sin(v);}}}}
+
+function gravityToggle() {
+	if (isGravity%2 === 0) {
+		for (let j in bubbles) {
+			bubbles[j].gravity = 0.3;}
+		isGravity += 0.5;}
+	else {
+		for (let j in bubbles) {
+			bubbles[j].gravity = 0;}
+		isGravity -= 0.5;}}
+
+
+function init() {
+  canvas = document.getElementById("gameCanvas");
+  c = canvas.getContext("2d");
+  animate();}
+
+function animate() {
+  canvas.width = window.innerWidth - 2;
+  canvas.height = window.innerHeight -2;
+  c.clearRect(0, 0, canvas.width, canvas.height);
+  time = requestAnimationFrame(animate);
+  if (emitter === true) {
+  	new Bubble();
+  	emitter = false;}
+  for (let i in bubbles) {
+    bubbles[i].draw();
+	bubbles[i].checkCollision();}}
+
+
+
+
+// CONTROLS
+
+function addBubble() {
+  if (bubbleNum === 0) {
+  	bubbleNum++;}
+  for (let i=0; i<bubbleNum; i++) {
+  	new Bubble();}}
+function subBubble() {
+  for (let i in bubbles) {
+	delete bubbles[i];}}
+function start() {
+  animate();}
+function stop() {
+  window.cancelAnimationFrame(time);}
+
+
+
+
+// UPDATE FUNCTIONS
+
+function amountNewBubbles(val) {
+	bubbleNum = val;}
+function amountNewRadius(val) {
+	amountRadius = val;}
+
+function rangeUpdateGreen(val) {
+	amountGreen = val;
+	document.getElementById('currentGreen').value = val;}
+function rangeUpdateBlue(val) {
+	amountBlue = val;
+	document.getElementById('currentBlue').value = val;}
+function rangeUpdateRed(val) {
+	amountRed = val;
+	document.getElementById('currentRed').value = val;}
+function randomColor(val) {
+	return randColorTrue = document.getElementById('randomColor').checked;}
+function randomRadius(val) {
+	return randRadiusTrue = document.getElementById('randomRadius').checked;}
+function Gravity(val) {
+	return gravity = document.getElementById('Gravity').checked;}
+
+
+
+function toggleControls() {
+  if (controlNumber%2 === 0) {
+  	document.getElementById('canvasInterface').style.opacity = '0';
+  	document.getElementById('controlBTN').style.opacity = '0.5';
+  	document.getElementById('controlOPACITY').style.opacity = '0';
+  	document.getElementById('canvasInterface').style.left = '-250px';
+  	controlNumber++;}
+  else {
+  	document.getElementById('canvasInterface').style.opacity = '1';
+  	document.getElementById('controlBTN').style.opacity = '1';
+  	document.getElementById('controlOPACITY').style.opacity = '1';
+  	document.getElementById('canvasInterface').style.left = '0px';
+  	document.getElementById('controlOPACITY').style.left = '0px';
+  	controlNumber--;}}
+
+function toggleOpacity() {
+  	document.getElementById('canvasInterface').style.opacity = '0.2';
+  	document.getElementById('controlBTN').style.opacity = '0.5';
+  	document.getElementById('controlOPACITY').style.opacity = '0';
+  	document.getElementById('controlOPACITY').style.left = '-250px';
+  	controlNumber++;}
+
+
+
+</script>
+
+
+</body></html>
